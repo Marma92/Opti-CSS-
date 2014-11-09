@@ -1,0 +1,16 @@
+h1{
+	font-size: 12px;
+}
+h1, div {
+	color: blue;
+}
+p, div{
+	font-size: 18px;
+	margin: 5px;
+}
+div{
+	clear:both;
+}
+p{
+	line-heigth: 110%;
+}
