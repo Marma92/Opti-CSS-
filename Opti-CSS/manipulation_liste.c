@@ -9,34 +9,6 @@ typedef struct s_list
 
 
 
-t_list* list_create( int max);
-list_display( t_list* list);
-list_append( t_list* list, int value );
-list_insert( t_list* list, unsigned int index, int value );
-void list_remove_index( t_list* list, unsigned index);
-t_list* list_copy( t_list* src);
-t_list* list_concat( t_list* list ...);
-t_list* revert_copy( t_list* list );
-void revert_inside( t_list* list );
-
-
-
-
-
-
-
-int main(int argv, char**argv){
-
-	t_list* list= list_create( 10 );
-	list->elems[0] = 10;
-	list->elems[1] = 4;
-	list->elems[2] = 19;
-	list->length = 3;
-	list_display(list);
-}
-
-
-
 t_list* list_create( int max){
 	t_list* list = malloc( sizeof(t_list) );
 	t_list->elems = malloc( sizeof(t_list)*max );
