@@ -1,34 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct elements_list { // Déclaration de la structure
-        char * name;
-        char  properties;
-        int max=0;
-    } css_elems_list;
+typedef struct s_list
+{
+    char balise;
+    char value;
+    struct s_list_chain* next;
+};
     
 int is_css_file (char * file_input); // Prototype de la fonction qui vérifie que le fichier est bien un fichier .css
 
 int main(int argc, char** argv) {
 
-   if (3 > argc) { // On vérifie qu'on a bien au moins un fichier entrée et un fichier sortie en paramètres
-        printf("Nombre de parametres insuffisant\n");
-        return (1);
-    }
+   
     
     int i_files=1; // Variable incrémentée à chaque fois qu'on ouvre un nouveau fichier
     char lecture; // Caractère lu par la fonction fgetc, cela permet d'afficher le contenu du fichier
     const char * css_file_input,* css_file_output; // Respectivement les variables qui vont contenir les noms des fichiers 
                                                    // d'entrée et de sortie
+    FILE *file_input,*file_output;
     
     argc = 4; // Comme le fait d'aller chercher la console à chaque fois
               // pour éxécuter le programme est long,je passe les noms des fichiers en paramètres de cette façon
     argv[1,1] = "style.css"; // Fichier d'entrée
-    argv[1,2] = "style2.css"; // Fichier d'entrée
+    argv[1,2] = "style23.css"; // Fichier d'entrée
     argv[1,3] = "result.css"; // Fichier de sortie
     
-    FILE *file_input,*file_output;
+    if (3 > argc) { // On vérifie qu'on a bien au moins un fichier entrée et un fichier sortie en paramètres
+        printf("Not enough parameters.\n");
+        return (1);
+    }
     
+    for (i_files=1;i_files<argc-1;i_files++) {
+        css_file_input = argv[1,i_files];
+        file_exist(css_file_input);
+        !is_css_file(css_file_input);
+    }
+    
+    
+    /*
     for (i_files=1;i_files<argc-1;i_files++) { // Pour chaque fichier passé en paramètre (jusqu'à l'avant dernier qui sera le fichier de sortie)
         css_file_input = argv[1,i_files]; // On vérifie que ce soit bien un fichier .css
         if (NULL == (file_input = fopen(css_file_input,"r")) || !is_css_file(css_file_input)) { // Et on vérifie si il existe
@@ -53,6 +63,7 @@ int main(int argc, char** argv) {
         printf("Fichier %s existant, copie impossible\n",file_output);
         exit(1);
     }
+    */
     
     return (EXIT_SUCCESS);
 }
