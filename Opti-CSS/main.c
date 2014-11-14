@@ -1,15 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "fonction.h"
 
-typedef struct s_list
-{
-    char balise;
-    char propertie;
-    char value;
-    struct s_list_chain* next;
-};
-    
-int is_css_file (char * file_input); // Prototype de la fonction qui vérifie que le fichier est bien un fichier .css
 
 int main(int argc, char** argv) {
 

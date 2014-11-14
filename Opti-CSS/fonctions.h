@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "manipulation_liste.h"
 
-typedef struct s_list_chain
+typedef struct s_list
 {
     char balise;
+    char propertie;
     char value;
     struct s_list_chain* next;
-}t_list_chain;
+};
+    
 
 /*--------------------------------------------------\*
  declaration des prototypes de fonction.c
