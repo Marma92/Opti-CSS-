@@ -6,6 +6,7 @@
 typedef struct s_list
 {
     char balise;
+    char propertie;
     char value;
     struct s_list_chain* next;
 };

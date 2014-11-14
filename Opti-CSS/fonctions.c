@@ -2,9 +2,7 @@
 
 
 /*/ --------------------------------------\*\
-	permet de verifier si le fichier cible 
-	exist.
-
+	permet de verifier si le fichier cible exist.
 \*\---------------------------------------/*/
 void file_exist( char name_file ) {
 	FILE* fp;
@@ -20,13 +18,10 @@ void file_exist( char name_file ) {
 	}
 }
 
-
 /*/ --------------------------------------\*\
-	permet de verifier si le fichier en 
-	entree est bien de type .css
-
+	permet de verifier si le fichier en entree est bien de type .css
 \*\---------------------------------------/*/
-int is_css_file (char * file_input) {
+int is_css_file (char* file_input) {
     int i = 0;
     while (file_input[i] != '\0') {
         i++;
@@ -39,11 +34,36 @@ int is_css_file (char * file_input) {
     }
 }
 
+/*/ --------------------------------------\*\
+	ouverture du fichier cible
+\*\---------------------------------------/*/
+FILE* file_open(char* file_open){
+	file_exist(out_file);
+	is_css_file(file_open);
+	//obliger de passer l'option w+, pb de droit sous linux
+	FILE* fichier = NULL;
+
+    fichier = fopen( out_file, "r+");
+
+    if (fichier != NULL)
+        return fichier;
+    else
+    {
+        printf("Impossible d'ouvrir le fichier %c", file_open);
+        exit(1);
+    }
+}
+
+
+char* get_line(FILE* file_open){
+	file_open(file_open);
+}
+
+
+
 
 /*/ --------------------------------------\*\
-	Fonction permettant, l'ecriture dans un 
-	fichier	et il le creer s'il nexiste pas.
-
+	Fonction permettant, l'ecriture dans un fichier	et il le creer s'il nexiste pas.
 \*\---------------------------------------/*/
 void write( char out_file, t_list* liste ){
 	//FILE* fw;
@@ -60,35 +80,11 @@ void write( char out_file, t_list* liste ){
 }
 
 
-/*/ --------------------------------------\*\
-	ouverture du fichier cible
-
-\*\---------------------------------------/*/
-FILE* file_open(char* file_open){
-	file_exist(out_file);
-	//obliger de passer l'option w+, pb de droit sous linux
-	FILE* fichier = NULL;
-
-    fichier = fopen( out_file, "r+");
-
-    if (fichier != NULL)
-    {
-        //le fichier est correctement ouvert
-        return fichier;
-    }
-    else
-    {
-        // On affiche un message d'erreur si on veut
-        printf("Impossible d'ouvrir le fichier test.txt");
-        exit(1);
-    }
-}
-
-
-
-
 void print_help(){
 	printf("Voici la liste des options disponnible pour l application\n");
 	printf("\t-h\tpermet dáfficher le message du helper\n");
 	printf("\t-b\tpermet de mettre en forme le texte de sortie\n");
 }
+
+
+void get_line
