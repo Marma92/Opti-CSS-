@@ -8,10 +8,5 @@
 \*--------------------------------------------------*/
 void file_exist( char name_file );
 int is_css_file (char * file_input);
-void write( char out_file, t_list* liste );
+void write( char out_file, t_list_chain* liste );
 FILE* file_open(char* file_open);
-
-
-/*--------------------------------------------------\*
- declaration des prototypes de manipulation.c
-\*--------------------------------------------------*/
