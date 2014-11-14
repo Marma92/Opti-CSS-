@@ -3,12 +3,12 @@
 /*--------------------------------------------------\*
  declaration de la structure pour la liste
 \*--------------------------------------------------*/
-typedef struct list_elemen {
-    int* elems;
-    char * name;
-    char  properties;
-    int max=0;
-} tlist_elemen;
+typedef struct s_list
+{
+    char balise;
+    char value;
+    struct s_list_chain* next;
+};
 
 /*--------------------------------------------------\*
  declaration des variables utiles
