@@ -1,17 +1,22 @@
 #include "fonction.h"
 
+
 typedef struct s_list
 {
 	int* elems;
+	char* balise;
+	char* valeur;
 	unsigned int length;
 	unsigned int max;
-}t_list;
+};
 
 
 
 t_list* list_create( int max){
 	t_list* list = malloc( sizeof(t_list) );
 	t_list->elems = malloc( sizeof(t_list)*max );
+	t_list->balise = NULL;
+	t_list->valeur = NULL;
 	t_list->length = 0;
 	t_list->max = max;
 

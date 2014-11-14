@@ -3,11 +3,12 @@
 /*--------------------------------------------------\*
  declaration de la structure pour la liste
 \*--------------------------------------------------*/
-typedef struct elements_list {
+typedef struct list_elemen {
+    int* elems;
     char * name;
     char  properties;
     int max=0;
-} css_elems_list;
+} tlist_elemen;
 
 /*--------------------------------------------------\*
  declaration des variables utiles

@@ -88,5 +88,7 @@ FILE* file_open(char* file_open){
 
 
 void print_help(){
-
+	printf("Voici la liste des options disponnible pour l application\n");
+	printf("\t-h\tpermet dáfficher le message du helper\n");
+	printf("\t-b\tpermet de mettre en forme le texte de sortie\n");
 }
