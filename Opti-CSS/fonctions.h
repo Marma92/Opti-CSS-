@@ -1,7 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
+typedef struct s_list_chain
+{
+    char balise;
+    char value;
+    struct s_list_chain* next;
+}t_list_chain;
 
 /*--------------------------------------------------\*
  declaration des prototypes de fonction.c
