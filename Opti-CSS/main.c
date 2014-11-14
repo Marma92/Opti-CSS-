@@ -1,10 +1,3 @@
-/* 
- * File:   main.c
- * Author: Arnaud
- 
- * Created on 26 octobre 2014, 14:41
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -62,24 +55,4 @@ int main(int argc, char** argv) {
     }
     
     return (EXIT_SUCCESS);
-}
-
-/*css_elems_list * list_create(int length_name,int length_properties) {
-    css_elems_list * list = malloc(sizeof(css_elems_list));
-    list->name = malloc(length_name*sizeof(char));
-    list->properties = malloc(length_properties*sizeof(char));
-    return (list);
-}*/
-
-int is_css_file (char * file_input) {
-    int i = 0;
-    while (file_input[i] != '\0') {
-        i++;
-    }
-    if (file_input[i-1]=='s' && file_input[i-2]=='s' && file_input[i-3]=='c' && file_input[i-4]=='.' ) {
-        return (1);
-    }
-    else {
-        return (0);
-    }
 }
