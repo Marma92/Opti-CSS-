@@ -37,30 +37,35 @@ int is_css_file (char * file_input) {
 	ouverture du fichier cible
 \*\---------------------------------------/*/
 FILE* file_open(char* file_open){
+	file_exist(out_file);
+	is_css_file(file_open);
 	//obliger de passer l'option w+, pb de droit sous linux
 	FILE* fichier = NULL;
 
-    fichier = fopen( file_open, "r+");
+    fichier = fopen( out_file, "r+");
 
     if (fichier != NULL)
-    {
-        //le fichier est correctement ouvert
         return fichier;
-    }
     else
     {
-        // On affiche un message d'erreur si on veut
-        printf("Impossible d'ouvrir le fichier test.txt");
+        printf("Impossible d'ouvrir le fichier %c", file_open);
         exit(1);
     }
 }
 
+
+char* get_line(FILE* file_open){
+	file_open(file_open);
+}
+
+
+
+
 /*/ --------------------------------------\*\
-	Fonction permettant, l'ecriture dans un 
-	fichier	et il le creer s'il nexiste pas.
+	Fonction permettant, l'ecriture dans un fichier	et il le creer s'il nexiste pas.
 \*\---------------------------------------/*/
-/*void write(char out_file, t_list_chain* liste ){
-	FILE* fw;
+void write( char out_file, t_list* liste ){
+	//FILE* fw;
 	file_exist(out_file);
 	//obliger de passer l'option w+, pb de droit sous linux
 	fw = fopen( out_file, "w+"); 
@@ -70,9 +75,15 @@ FILE* file_open(char* file_open){
 	}
 
 	int tampon = 0;
-	//while
-}*/
+	while
+}
+
 
 void print_help(){
-
+	printf("Voici la liste des options disponnible pour l application\n");
+	printf("\t-h\tpermet dáfficher le message du helper\n");
+	printf("\t-b\tpermet de mettre en forme le texte de sortie\n");
 }
+
+
+void get_line
