@@ -1,6 +1,8 @@
-#include "fonction.h"
+#include "fonctions.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/*utilisation de liste chaine et nom contigue
+//utilisation de liste chaine et nom contigue
 // car on doit connaitre la taille final pour
 // l allocation memoire.
 		typedef struct s_list
@@ -10,9 +12,9 @@
 			char value;
 			struct s_list_chain* next;
 		};
-*/
 
-// creation d une nouvelle liste
+
+/* creation d une nouvelle liste
 t_list_chain* list_chain_new(char balise, char propertie, char value){
 	t_list_chain* list = ( t_list_chain*)malloc(sizeof(t_list_chain));
 	list->balise = balise;
@@ -67,3 +69,4 @@ t_list_chain* list_chain_display(t_list_chain* list){
 		printf("%d\n", list->value);
 	}
 }
+ */

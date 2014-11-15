@@ -23,8 +23,16 @@ int main(int argc, char** argv) {
     
     for (i_files=1;i_files<argc-1;i_files++) {
         css_file_input = argv[1,i_files];
-        file_exist(css_file_input);
-        !is_css_file(css_file_input);
+        if (!file_exist(css_file_input)) {
+            printf ("File %s does not exists.");
+            return (1);
+        }
+        else {
+            if (!is_css_file(css_file_input)) {
+                printf("File %s isn't a css file.");
+                return (1);
+            }
+        }
     }
     
     

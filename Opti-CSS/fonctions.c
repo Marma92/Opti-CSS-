@@ -1,9 +1,7 @@
 #include "fonctions.h"
 
-/*/ --------------------------------------\*\
-	permet de verifier si le fichier cible 
-	exist.
-\*\---------------------------------------/*/
+//permet de verifier si le fichier cible exist.
+
 void file_exist(const char * name_file) {
     FILE* fp;
     fp = fopen(name_file,"r");
@@ -14,21 +12,19 @@ void file_exist(const char * name_file) {
     }
 }
 
-/*/ --------------------------------------\*\
-	permet de verifier si le fichier en 
-	entree est bien de type .css
-\*\---------------------------------------/*/
+//permet de verifier si le fichier en entree est bien de type .css
+
 int is_css_file (const char * file_input) {
     int i = 0;
     while (file_input[i] != '\0') {
         i++;
     }
     if (file_input[i-1]=='s' && file_input[i-2]=='s' && file_input[i-3]=='c' && file_input[i-4]=='.' ) {
-        exit(0);
+        return(1);
     }
     else {
         printf("File %s isn't a css file.",file_input);
-        exit(1);
+        return(0);
     }
 }
 
