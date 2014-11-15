@@ -1,9 +1,8 @@
-#include "fonction.h"
+#include "fonctions.h"
+
 
 
 int main(int argc, char** argv) {
-
-   
     
     int i_files=1; // Variable incrémentée à chaque fois qu'on ouvre un nouveau fichier
     char lecture; // Caractère lu par la fonction fgetc, cela permet d'afficher le contenu du fichier

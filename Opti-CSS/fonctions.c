@@ -4,7 +4,7 @@
 	permet de verifier si le fichier cible 
 	exist.
 \*\---------------------------------------/*/
-void file_exist(char name_file) {
+void file_exist(const char * name_file) {
     FILE* fp;
     fp = fopen(name_file,"r");
     if(NULL == fp ){
@@ -18,7 +18,7 @@ void file_exist(char name_file) {
 	permet de verifier si le fichier en 
 	entree est bien de type .css
 \*\---------------------------------------/*/
-int is_css_file (char * file_input) {
+int is_css_file (const char * file_input) {
     int i = 0;
     while (file_input[i] != '\0') {
         i++;
@@ -33,9 +33,9 @@ int is_css_file (char * file_input) {
 }
 
 
-/*/ --------------------------------------\*\
+/*
 	ouverture du fichier cible
-\*\---------------------------------------/*/
+
 FILE* file_open(char* file_open){
 	file_exist(out_file);
 	is_css_file(file_open);
@@ -61,9 +61,9 @@ char* get_line(FILE* file_open){
 
 
 
-/*/ --------------------------------------\*\
+
 	Fonction permettant, l'ecriture dans un fichier	et il le creer s'il nexiste pas.
-\*\---------------------------------------/*/
+
 void write( char out_file, t_list* liste ){
 	//FILE* fw;
 	file_exist(out_file);
@@ -87,3 +87,4 @@ void print_help(){
 
 
 void get_line
+ */
