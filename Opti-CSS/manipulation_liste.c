@@ -8,13 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct s_list_chain {
-    char * balise;
-    char * propertie;
-    char * value;
-    struct s_list_chain* next;
-}t_list_chain;
-*/
+
+
 
 // creation d une nouvelle liste
 t_list_chain * list_chain_new(char * balise, char * propertie, char * value){
