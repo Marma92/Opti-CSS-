@@ -59,10 +59,9 @@ int main(int argc, char** argv) {
             int i_word = 0;
             while ((lecture=fgetc(file_input))!= EOF) {
                 switch (lecture) {
-                    case '{' : word[i_word]='\0';balise = word_copy(word);printf("Balise:%s\n",balise);word[0]='\0';i_word=0;break;
-                    case ':' : word[i_word]='\0';property = word_copy(word);printf("Propriété:%s\n",property);word[0]='\0';i_word=0;break;
-                    case ';' : word[i_word]='\0';value = word_copy(word);printf("Valeur:%s\n",value);word[0]='\0';i_word=0;
-                    printf("Balise %s,Propriété %s,Valeur %s\n",balise,property,value);
+                    case '{' : word[i_word]='\0';balise = word_copy(word);word[0]='\0';i_word=0;break;
+                    case ':' : word[i_word]='\0';property = word_copy(word);word[0]='\0';i_word=0;break;
+                    case ';' : word[i_word]='\0';value = word_copy(word);word[0]='\0';i_word=0;
                                 list = list_chain_append(list,balise,property,value);
                                 break;
                     case '}' : word[i_word]='\0';word[0]='\0';i_word=0;break;
