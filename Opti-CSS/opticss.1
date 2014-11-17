@@ -1,6 +1,34 @@
-.TH OptiCSS "November 2014" "Version 1.0" "USER COMMANDS"
+
+.\"
+.\" This is a manpage example. 
+.\" Process this file with:
+.\" groff -man -Tascii coffee.1
+.\"
+
+.TH OptiCSS "November 2014" "Version 1.0" "OptiCss Manual"
 .SH NAME 
 OptiCSS \- Optimize multiple CSS-files into one 
 .SH SYNOPSIS
-.B opticss 
-[\-]
+.B opticss
+[\fB-h\fP|\fB-v\fP]  [\fB filename1 \fP|\fB filename2 \fP|\fB filenamex\fP|\fB targetfilename\fP] [\fB -b\fP]
+.SH DESCRIPTION
+\fBOptiCss\fP is a CSS files optimizer. It permits to regroup many CSS files into an unique target file, suppressing redundancies and shortening the final code.  
+.SH OPTIONS
+The following options can be used: 
+.TP
+\fB-b\fP , \fB--beautify\fP 
+Ask for an indentation and a proper synthax for the target file. 
+.TP
+\fB-h\fP , \fB--help\fP
+Display a short help text describing the supported command-line options, and then exit.  
+\fB-v\fP , \fB--version\fP
+Display \fBOptiCSS\fP version and exit.
+.SH LICENCE
+Copyright (c) 2014 ESGI, Developed by Flaesch Arnaud, Lafosse Vincent, Elbaz Amram. 
+.br
+This software is released under the GNU General Public License. Please
+read the COPYING file for more information. 
+.SH BUGS
+If you find any, or encounter an issue, please send a report to elbaz_a14@myges.fr .
+.SH AUTHORS
+\fB Flaesch Arnaud, Lafosse Vincent, Elbaz Amram \fP .
