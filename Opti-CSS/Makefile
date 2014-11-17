@@ -43,4 +43,4 @@ clean:
 
 #permet de supprime tout ce qui peut être régénéré et permet une reconstruction complète du projet.
 mrproper: clean
-	rm -rf optiCss
+	rm -rf $(EXEC)

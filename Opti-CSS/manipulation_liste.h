@@ -1,3 +1,15 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+typedef struct s_list_chain {
+    char* balise;
+    char* propertie;
+    char* value;
+    struct s_list_chain* next;
+}t_list_chain;
+
+
+
 /*--------------------------------------------------\*
  declaration des prototypes de manipulation_liste.c
 \*--------------------------------------------------*/
