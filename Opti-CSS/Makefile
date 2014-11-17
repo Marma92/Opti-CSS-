@@ -10,28 +10,26 @@ CC=gcc
 # -Wall : active tout les warning possibles :P
 # -ansi : force la compalation en ANSI
 # -pendantic : affiche les warnings requis par la norme ANSI du langage.
-CFLAGS= -W -Wall -ansi -pendantic
+CFLAGS= 
+#-W -Wall -ansi -pedantic
 #regroupe  les options d edition de liens
 LDFLAGS=
 #nom de l executable a generer
-EXEC=optiCss
+EXEC=OptiCSS
 
 
 #regroupe dans ces dépendances l'ensemble des exécutables à produire
 all: $(EXEC)
 
 
-optiCss: fonction.o main.o manipulation.o manipulation_liste.o
-	$(CC) -o $(EXEC) fonction.o main.o manipulation.o manipulation_liste.o $(LDFLAGS)
+$(EXEC): main.o fonctions.o  manipulation_liste.o
+	$(CC) -o $(EXEC) main.o fonctions.o  manipulation_liste.o $(LDFLAGS)
 
-fonction.o : fonction.c
-	$(CC) -o fonction.o -c fonction.c $(CFLAGS)
+fonctions.o : fonctions.c
+	$(CC) -o fonctions.o -c fonctions.c $(CFLAGS)
 
 main.o : main.c
-	$(CC) -o main.o -c fonction.c $(CFLAGS)
-
-manipulation.o : manipulation.c
-	$(CC) -o manipulation.o -c manipulation.c $(CFLAGS)
+	$(CC) -o main.o -c main.c $(CFLAGS)
 
 manipulation_liste.o : manipulation_liste.c
 	$(CC) -o manipulation_liste.o -c manipulation_liste.c $(CFLAGS)
