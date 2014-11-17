@@ -1,19 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct s_list_chain {
-    char balise;
-    char propertie;
-    char value;
-    struct s_list_chain* next;
-}t_list_chain;
-
-#include "fonctions.h"
 #include "manipulation_liste.h"
+#include "fonctions.h"
+
+
 #define OPTION_BEAUTIFUL 0
+#define TRUE 1
+#define FALSE 0
 
 int main(int argc, char** argv) {
     
+    int option_beautiful = FALSE;
+    int i = 0;
     int i_files=1; // Variable incrémentée à chaque fois qu'on ouvre un nouveau fichier
     char lecture,*balise,*property,*value,word[256]; // Caractère lu par la fonction fgetc, cela permet d'afficher le contenu du fichier
     const char *filename,* css_file_input,* css_file_output; // Respectivement les variables qui vont contenir les noms des fichiers 
@@ -25,12 +24,27 @@ int main(int argc, char** argv) {
     argv[1,1] = "style.css"; // Fichier d'entrée
     argv[1,2] = "style2.css"; // Fichier d'entrée
     argv[1,3] = "result.css"; // Fichier de sortie
-    
+
+    if (2 >= argc) {
+        if (45== argv[1][0] ){
+            switch(argv[1][1]){
+                case 104: 
+                    print_help();
+                    return (EXIT_SUCCESS);
+                    break;
+                case 98:
+                    option_beautiful = TRUE;
+                default:
+                    break;
+            }
+        }
+    }
+
     if (3 > argc) { // On vérifie qu'on a bien au moins un fichier entrée et un fichier sortie en paramètres
         printf("Not enough parameters.\n");
         return (1);
     }
-    
+  
     while (i_files<argc-1) {
         filename = argv[1,i_files];
         file_exist(filename);
@@ -70,7 +84,7 @@ int main(int argc, char** argv) {
                     case 9 : break;
                     case '\n' : break;
                     default : word[i_word]=lecture;i_word++; break;
-                }  
+                }
             }
             fclose(file_input);
         }

@@ -1,16 +1,16 @@
+#include "manipulation_liste.h"
+
+
 //utilisation de liste chaine et nom contigue
 // car on doit connaitre la taille final pour
 // l allocation memoire.
-
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct s_list_chain {
-    char balise;
-    char propertie;
-    char value;
+/*typedef struct s_list_chain {
+    char* balise;
+    char* propertie;
+    char* value;
     struct s_list_chain* next;
 }t_list_chain;
+*/
 
 // creation d une nouvelle liste
 t_list_chain * list_chain_new(char * balise, char * propertie, char * value){
@@ -26,16 +26,14 @@ t_list_chain * list_chain_new(char * balise, char * propertie, char * value){
 // rajoute un element a la fin de la liste
 t_list_chain * list_chain_append(t_list_chain *  list, char * balise, char * property, char * value){
     if(!list) {
-        printf("ici\n");
         return list_chain_new(balise,property,value);
     }
-    printf("là\n");
     t_list_chain* save = list;
     while(save->next != NULL){
         save = save->next;
     }
     save->next = list_chain_new(balise, property, value);
-    return save;
+    return list;
 }
 
 //supprime la value a la position donnee
@@ -71,8 +69,8 @@ t_list_chain* list_chain_display(t_list_chain* list){
     }
 }
 
-// Copie un mot,une propriété ou une valeur
 
+// Copie un mot,une propriété ou une valeur
 char * word_copy (char * word) {
     int i=0;
     char * word_copy;
