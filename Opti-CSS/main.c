@@ -44,14 +44,14 @@ int main(int argc, char** argv) {
         printf("Not enough parameters.\n");
         return (1);
     }
-  
+  // On vérifie l'extension des fichiers et leur existence
     while (i_files<argc-1) {
         filename = argv[1,i_files];
         file_exist(filename);
         is_css_file(filename);                
         i_files++;
     }
-    
+    // On vérifie si le fichier de sortie existe,si c'est le cas on arrête
     filename = argv[1,i_files];
     if (NULL != (file_output = fopen(filename,"r"))) {
         printf("Output file %s already exists.\n",filename);
@@ -61,17 +61,17 @@ int main(int argc, char** argv) {
         css_file_output = filename;
         fclose(file_output);
     }
-    for (i_files=1;i_files<argc-1;i_files++) {
+    for (i_files=1;i_files<argc-1;i_files++) { // On parcourt les fichiers
         css_file_input = argv[1,i_files];
         file_input = fopen(css_file_input,"r");
         if (NULL == file_input) {
-            printf("Cannot read from file %s.\n",css_file_input);
+            printf("Cannot read from file %s.\n",css_file_input); // Si l'un des fichiers d'entrée n'existe pas,on arrête
             fclose(file_input);
             return (1);
         }
         else {
             int i_word = 0;
-            while ((lecture=fgetc(file_input))!= EOF) {
+            while ((lecture=fgetc(file_input))!= EOF) { // On parse
                 switch (lecture) {
                     case '{' : word[i_word]='\0';balise = word_copy(word);word[0]='\0';i_word=0;break;
                     case ':' : word[i_word]='\0';property = word_copy(word);word[0]='\0';i_word=0;break;
