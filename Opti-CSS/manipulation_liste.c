@@ -4,34 +4,41 @@
 #include <stdlib.h>
 
 // creation d une nouvelle liste
-t_list_chain * list_chain_new(char * balise){
+t_list_chain * list_chain_new(const char * balise){
     t_list_chain * list = (t_list_chain *)malloc(sizeof(t_list_chain));    
     list->balise = balise;
     list->node = NULL;
-    list->list_next = NULL;
+    list->next = NULL;
     return list;
 }
+
+t_list_node* list_node_new(const char* property, const char* value){
+    t_list_node* node = (t_list_node*)malloc(sizeof(t_list_node));
+    node->property = property;
+    node->value = value;
+    node->next = NULL;
+    return node;
+}
+
 
 // rajoute un element a la fin de la liste
 t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const char* property, const char* value){
     
     if(!list)
-        list_chain_new(char* balise);
+        list_chain_new(balise);
     //test si balise existe deja
     while(list != NULL){
         if(list->balise == balise){
-            while(node != NULL){
-                if(node->property == property && node->value == value){
+           do{
+                if(list->node->property == property && list->node->value == value){
                     continue;
                 }else{
-                    t_list_node* node = (t_list_node*)malloc(sizeof(t_list_node));
-                    node->property = property;
-                    node->value = value;
+                    list_node_new(property, value);
                 }
-                node = node->next;
-            }
+                list->node = list->node->next;
+            }while(list->node != NULL);
         }else{
-            list_chain_new(char* balise);
+            list_chain_new(balise);
         }
         list = list->next;
     }
@@ -66,7 +73,7 @@ void list_chain_display(t_list_chain* list){
             printf("Balise %s\n",list->balise);
             while (list->node!=NULL){
                 printf("Propriété %s Valeur %s\n");
-                list->node = node->next;
+                list->node = list->node->next;
             }
             list = list->next;
         }
