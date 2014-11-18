@@ -20,7 +20,7 @@ typedef struct s_list_node {
 \*--------------------------------------------------*/
 
 t_list_chain * list_chain_new(char * balise);
-t_list_chain * list_chain_append(t_list_chain* list,char * balise,char * property,char * value);
+t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const char* property, const char* value);
 t_list_chain * list_chain_remove(t_list_chain* list, int index);
 t_list_chain * list_sort (t_list_chain * list);
 void list_chain_display(t_list_chain* list);
