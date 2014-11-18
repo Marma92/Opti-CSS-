@@ -105,3 +105,34 @@ int str_search( char *string, char *pattern){
 int my_strlen(char** word){
     return length(word[1]);
 }
+
+
+//Permet de suprimer les caracteres inutile dans le fichier
+unsigned char remove_unsual_caractere(char name_file){
+    
+    unsigned int nb_letter = 0, i = 0;
+
+    if ((file = fopen(name_file, "r")) == NULL){
+        printf("Error open file %s", name_file);
+        return EOF;
+    }
+    while( word = fgetc(name_file))!= EOF ){
+        nb_letter ++;
+    }
+
+    i = nb_letter;
+    unsigned char letter_tmp[i] = NULL;
+    while( word = fgetc(name_file))!= EOF ){
+        switch(word){
+            case '\n':
+            case '\t':
+            case ' ':
+                i++;
+                break;
+            default:
+                letter_tmp[i] = word;
+                break;
+        }
+    }
+    return letter_tmp;
+}
