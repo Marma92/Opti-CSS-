@@ -25,4 +25,4 @@ t_list_chain * list_chain_remove(t_list_chain* list, int index);
 //t_list_chain * list_sort (t_list_chain * list);
 void list_chain_display(t_list_chain* list);
 char * concat(char *chaine1,char *chaine2);
-char * word_copy (char * word);
+char * word_copy (const char * word);

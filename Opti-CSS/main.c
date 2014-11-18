@@ -10,12 +10,12 @@
 #define FALSE 0
 
 int main(int argc, char** argv) {
-    
+
     int option_beautiful = FALSE;
     int i = 0;
     int i_files=1; // Variable incrémentée à chaque fois qu'on ouvre un nouveau fichier
     char lecture,*balise,*property,*value,word[256]; // Caractère lu par la fonction fgetc, cela permet d'afficher le contenu du fichier
-    const char *filename,* css_file_input,* css_file_output; // Respectivement les variables qui vont contenir les noms des fichiers 
+    const char *filename,* css_file_input,* css_file_output; // Respectivement les variables qui vont contenir les noms des fichiers
                                                    // d'entrée et de sortie
     FILE *file_input,*file_output;
     t_list_chain * list = NULL;
@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     if (2 >= argc) {
         if (45== argv[1][0] ){
             switch(argv[1][1]){
-                case 104: 
+                case 104:
                     print_help();
                     return (EXIT_SUCCESS);
                     break;
@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
     while (i_files<argc-1) {
         filename = argv[1,i_files];
         file_exist(filename);
-        is_css_file(filename);                
+        is_css_file(filename);
         i_files++;
     }
     // On vérifie si le fichier de sortie existe,si c'est le cas on arrête
@@ -88,6 +88,6 @@ int main(int argc, char** argv) {
             fclose(file_input);
         }
     }
-    list = list_sort(list);
+//  list = list_sort(list);
     return (EXIT_SUCCESS);
 }
