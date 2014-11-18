@@ -25,9 +25,9 @@ t_list_node* list_node_new(const char* property, const char* value){
 t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const char* property, const char* value){
     
     if(!list)
-        list_chain_new(balise);
+        list = list_chain_new(balise);
     //test si balise existe deja
-    while(list != NULL){
+    do{
         if(list->balise == balise){
            do{
                 if(list->node->property == property && list->node->value == value){
@@ -41,7 +41,7 @@ t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const 
             list_chain_new(balise);
         }
         list = list->next;
-    }
+    }while(list != NULL);
     return list;
 }
 
