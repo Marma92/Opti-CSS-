@@ -8,7 +8,7 @@ CC=gcc
 #regroupe les options de compilation
 # -W : active les warning suplementaire
 # -Wall : active tout les warning possibles :P
-# -ansi : force la compalation en ANSI
+# -ansi : force la compilation en ANSI
 # -pendantic : affiche les warnings requis par la norme ANSI du langage.
 CFLAGS= 
 #-W -Wall -ansi -pedantic

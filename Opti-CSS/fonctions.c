@@ -107,7 +107,7 @@ int my_strlen(char** word){
 }
 
 
-//Permet de suprimer les caracteres inutile dans le fichier
+//Permet de supprimer les caracteres inutile dans le fichier
 unsigned char remove_unsual_caractere(char name_file){
     
     unsigned int nb_letter = 0, i = 0;
