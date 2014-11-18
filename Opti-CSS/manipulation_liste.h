@@ -11,7 +11,7 @@ typedef struct s_list_node {
     char * property;
     char * value;
     struct s_list_node * next;
-};
+}t_list_node;
 
 
 
