@@ -3,7 +3,7 @@
 
 typedef struct s_list_chain {
     char* balise;
-    char* propertie;
+    char* property;
     char* value;
     struct s_list_chain* next;
 }t_list_chain;

@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "fonctions.h"
 
 
@@ -33,36 +34,36 @@ FILE* file_open(char* file_open){
 	file_exist(file_open);
 	is_css_file(file_open);
 	//obliger de passer l'option w+, pb de droit sous linux
-	FILE* fichier = NULL;
+	FILE* file = NULL;
 
-    fichier = fopen( file_open, "r+");
+    file = fopen( file_open, "r+");
 
-    if (fichier != NULL)
-        return fichier;
+    if (file != NULL)
+        return file;
     else
     {
-        printf("Impossible d'ouvrir le fichier %c", file_open);
+        printf("Error open file: %c", file_open);
         exit(1);
     }
 }
 
 
-/*
-//Fonction permettant, l'ecriture dans un fichier	et il le creer s'il nexiste pas.
-void write( char out_file, t_list_chain* list ){
-	//FILE* fw;
-	file_exist(out_file);
-	//obliger de passer l'option w+, pb de droit sous linux
-	fw = fopen( out_file, "w+"); 
-	if( NULL == fw ){
-		printf("erreur lors de la creation du fichier %s\n", out_file);
-		return 1;
-	}
 
-	int tampon = 0;
+//Fonction permettant, l'ecriture dans un fichier	et il le creer s'il nexiste pas.
+void write( FILE* file_result, const char* chaine, int option ){	
 	
+	if( NULL == file_result ){
+		printf("erreur lors de la creation du fichier %s\n", file_result);
+		exit(-1);
+	}
+    else{
+        if('EOF' == fputs(chaine, file_result)){
+            printf("Error write file result. \n");
+            exit(-1);
+        }
+    }	
 }
-*/
+
 
 void print_help(){
 	printf("Voici la liste des options disponnible pour l application\n");

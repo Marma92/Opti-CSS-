@@ -12,10 +12,10 @@
 
 
 // creation d une nouvelle liste
-t_list_chain * list_chain_new(char * balise, char * propertie, char * value){
+t_list_chain * list_chain_new(char * balise, char * property, char * value){
     t_list_chain * list = (t_list_chain *)malloc(sizeof(t_list_chain));    
     list->balise = balise;
-    list->propertie = propertie;
+    list->property = property;
     list->value = value;
     list->next = NULL;
     return list;
@@ -59,10 +59,10 @@ t_list_chain* list_chain_remove(t_list_chain* list, int index){
 void list_chain_display(t_list_chain* list){
     if(list){
         while(list->next != NULL){
-            printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->propertie,list->value);
+            printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->property,list->value);
             list = list->next;
         }
-        printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->propertie,list->value);
+        printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->property,list->value);
     }
 }
 
