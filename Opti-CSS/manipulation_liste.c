@@ -112,8 +112,7 @@ void list_chain_display(t_list_chain* list){
             list = list->next;
         }
     }
-} //https://lh5.googleusercontent.com/-n9jA9hTiuY8/AAAAAAAAAAI/AAAAAAAAAdY/yI-PSJc82TM/s46-c-k-no/photo.jpg
-
+} 
 
 // Copie un mot,une propriété ou une valeur
 char * word_copy (const char * word) {
