@@ -1,13 +1,8 @@
-#ifndef H_GOBAL
-#define H_GLOBAL
-    #include <stdio.h>
-    #include <stdlib.h>
-#endif
+#include <stdlib.h>
+#include "fonctions.h"
 
-#ifndef H_FUNCTIONS
-#define H_FUNCTIONS
-    #include "fonctions.h"
-#endif
+
+
 
 //permet de verifier si le fichier cible exist.
 int file_exist(const char * name_file) {
@@ -111,14 +106,13 @@ int my_strlen(char** word){
     return length(word[1]);
 }
 
-/*
+
 //Permet de suprimer les caracteres inutile dans le fichier
 unsigned char remove_unsual_caractere(char name_file){
     
-    FILE* file = fopen(name_file,"r");
     unsigned int nb_letter = 0, i = 0;
 
-    if ((file == NULL){
+    if ((file = fopen(name_file, "r")) == NULL){
         printf("Error open file %s", name_file);
         return EOF;
     }
@@ -128,8 +122,7 @@ unsigned char remove_unsual_caractere(char name_file){
 
     i = nb_letter;
     unsigned char letter_tmp[i] = NULL;
-    word = fgetc(name_file);
-    while( word != EOF ){
+    while( word = fgetc(name_file))!= EOF ){
         switch(word){
             case '\n':
             case '\t':
@@ -143,4 +136,3 @@ unsigned char remove_unsual_caractere(char name_file){
     }
     return letter_tmp;
 }
-*/

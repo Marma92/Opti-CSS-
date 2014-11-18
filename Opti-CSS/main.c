@@ -1,18 +1,8 @@
-#ifndef H_GOBAL
-#define H_GLOBAL
-    #include <stdio.h>
-    #include <stdlib.h>
-#endif
+#include <stdio.h>
+#include <stdlib.h>
 
-#ifndef H_MANIPULATION
-#define H_MANIPULATION
-    #include "manipulation_liste.h"
-#endif
-
-#ifndef H_FUNCTIONS
-#define H_FUNCTIONS
-    #include "fonctions.h"
-#endif
+#include "manipulation_liste.h"
+#include "fonctions.h"
 
 
 #define OPTION_BEAUTIFUL 0

@@ -1,8 +1,5 @@
-#ifndef H_GOBAL
-#define H_GLOBAL
-    #include <stdio.h>
-    #include <stdlib.h>
-#endif
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_list_chain {
     const char* balise;
