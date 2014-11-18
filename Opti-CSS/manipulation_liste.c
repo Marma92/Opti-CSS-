@@ -13,15 +13,28 @@ t_list_chain * list_chain_new(char * balise){
 }
 
 // rajoute un element a la fin de la liste
-t_list_chain * list_chain_append(t_list_chain *  list, char * balise, char * property, char * value){
-    if(!list) {
-        return list_chain_new(balise,property,value);
+t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const char* property, const char* value){
+    
+    if(!list)
+        list_chain_new(char* balise);
+    //test si balise existe deja
+    while(list != NULL){
+        if(list->balise == balise){
+            while(node != NULL){
+                if(node->property == property && node->value == value){
+                    continue;
+                }else{
+                    t_list_node* node = (t_list_node*)malloc(sizeof(t_list_node));
+                    node->property = property;
+                    node->value = value;
+                }
+                node = node->next;
+            }
+        }else{
+            list_chain_new(char* balise);
+        }
+        list = list->next;
     }
-    t_list_chain* save = list;
-    while(save->next != NULL){
-        save = save->next;
-    }
-    save->next = list_chain_new(balise, property, value);
     return list;
 }
 
