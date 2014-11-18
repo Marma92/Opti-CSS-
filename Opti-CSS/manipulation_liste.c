@@ -1,23 +1,14 @@
 #include "manipulation_liste.h"
 
-
-//utilisation de liste chaine et nom contigue
-// car on doit connaitre la taille final pour
-// l allocation memoire.
-
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-
 // creation d une nouvelle liste
-t_list_chain * list_chain_new(char * balise, char * property, char * value){
+t_list_chain * list_chain_new(char * balise){
     t_list_chain * list = (t_list_chain *)malloc(sizeof(t_list_chain));    
     list->balise = balise;
-    list->property = property;
-    list->value = value;
-    list->next = NULL;
+    list->node = NULL;
+    list->list_next = NULL;
     return list;
 }
 
@@ -58,11 +49,14 @@ t_list_chain* list_chain_remove(t_list_chain* list, int index){
 //affiche la liste en cas de debog
 void list_chain_display(t_list_chain* list){
     if(list){
-        while(list->next != NULL){
-            printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->property,list->value);
+        while(list != NULL){
+            printf("Balise %s\n",list->balise);
+            while (list->node!=NULL){
+                printf("Propriété %s Valeur %s\n");
+                list->node = node->next;
+            }
             list = list->next;
         }
-        printf("Balise %s Propriété %s Valeur %s\n",list->balise,list->property,list->value);
     }
 }
 
