@@ -1,5 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef H_GOBAL
+#define H_GLOBAL
+    #include <stdio.h>
+    #include <stdlib.h>
+#endif
 
 /*--------------------------------------------------\*
  declaration des prototypes de fonctions.c
