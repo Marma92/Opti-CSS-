@@ -1,7 +1,13 @@
-#include "manipulation_liste.h"
+#ifndef H_GOBAL
+#define H_GLOBAL
+    #include <stdio.h>
+    #include <stdlib.h>
+#endif
 
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef H_MANIPULATION
+#define H_MANIPULATION
+    #include "manipulation_liste.h"
+#endif
 
 // creation d une nouvelle liste
 t_list_chain * list_chain_new(const char * balise){
@@ -51,9 +57,6 @@ t_list_chain * list_chain_append(t_list_chain*  list, const char* balise, const 
             if (!list->node) {
                 list->node = list_node_new(property, value);
             }
-            //printf("pointeur ");
-            //int toto = equals(list->node->property, property);
-            //printf("2bis- %d, %d\n", equals(list->node->property, property), equals(list->node->value,value));
             do{
 
                 if(!equals(list->node->property, property) && !equals(list->node->value,value)){
@@ -114,6 +117,7 @@ void list_chain_display(t_list_chain* list){
     }
 } 
 
+
 // Copie un mot,une propriété ou une valeur
 char * word_copy (const char * word) {
     int i=0;
@@ -133,3 +137,19 @@ char * word_copy (const char * word) {
     return (word_copy);
 }
 
+
+/*
+void tris_list( t_list_chain* list){
+    while( list->next != NULL ){
+        if( equals( list->balise, balise)){
+            while( list->node->next != NULL){
+                if (equals( list->node->property, property) && equals( list->node->value, value))
+                {
+                    // code for writing file //
+                }
+            }
+        }
+    }
+}
+
+*/

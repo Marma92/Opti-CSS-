@@ -1,5 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef H_GOBAL
+#define H_GLOBAL
+    #include <stdio.h>
+    #include <stdlib.h>
+#endif
 
 /*--------------------------------------------------\*
  declaration des prototypes de fonctions.c
@@ -13,4 +16,4 @@ void print_help();
 int length( const char* s1);
 int str_search( char *string, char *pattern);
 int my_strlen(char** word);
-unsigned char remove_unsual_caractere(char name_file);
+//unsigned char remove_unsual_caractere(char name_file);

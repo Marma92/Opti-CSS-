@@ -1,6 +1,13 @@
-#include <stdlib.h>
-#include "fonctions.h"
+#ifndef H_GOBAL
+#define H_GLOBAL
+    #include <stdio.h>
+    #include <stdlib.h>
+#endif
 
+#ifndef H_FUNCTIONS
+#define H_FUNCTIONS
+    #include "fonctions.h"
+#endif
 
 
 
@@ -107,22 +114,25 @@ int my_strlen(char** word){
 }
 
 
+/*
 //Permet de supprimer les caracteres inutile dans le fichier
 unsigned char remove_unsual_caractere(char name_file){
     
+    FILE* file = fopen(name_file, "r");
     unsigned int nb_letter = 0, i = 0;
 
-    if ((file = fopen(name_file, "r")) == NULL){
+    if (file == NULL){
         printf("Error open file %s", name_file);
         return EOF;
     }
-    while( word = fgetc(name_file))!= EOF ){
+    while( fgetc(name_file) != EOF ){
         nb_letter ++;
     }
 
     i = nb_letter;
     unsigned char letter_tmp[i] = NULL;
-    while( word = fgetc(name_file))!= EOF ){
+    char word ;
+    while( (word = fgetc(name_file)) != EOF ){
         switch(word){
             case '\n':
             case '\t':
@@ -134,5 +144,8 @@ unsigned char remove_unsual_caractere(char name_file){
                 break;
         }
     }
+    fclose(file);
     return letter_tmp;
 }
+
+*/
