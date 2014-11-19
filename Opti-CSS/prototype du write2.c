@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct fichier_final {
+struct final_file {
     struct elements* e;
 };
 
@@ -17,8 +17,8 @@ struct properties {
     struct properties* next;
 };
 
-fichier_final* int_fichier_final(element* e){
-    fichier_final* ff = (t_list_chain *)malloc(sizeof(fichier_final));    
+final_file* int_final_file(element* e){
+    final_file* ff = (t_list_chain *)malloc(sizeof(final_file));    
     ff->e = e;
     return ff;
 }
@@ -63,7 +63,7 @@ properties* properties_append(properties* list, char* propName, char* value){
     return list;
 }
 
-void write_to_file(fichier_final* ff){
+void write_to_file(final_file* ff){
 	elements* e = ff->e
 	while(e->next != NULL){
 		file_append(f, e->nom)
